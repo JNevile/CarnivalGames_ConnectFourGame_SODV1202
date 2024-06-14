@@ -10,9 +10,12 @@ namespace ConnectFourGame
     {
         static void Main(string[] args)
         {
-            //Welcome greeting string of text
-            string welcomeText = "Welcome to the Connect Four Game! ";     
-            Console.WriteLine(welcomeText);
+            //Welcome greeting
+            Console.WriteLine("Welcome to the Connect Four Game! ");
+            //Ask the game player to enter their name to get started
+            Console.WriteLine("Please enter your name to begin. ");
+            //Allows game player to enter text
+            string str = Console.ReadLine();
         }
     }
 }
