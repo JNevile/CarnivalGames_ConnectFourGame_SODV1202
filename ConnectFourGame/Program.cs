@@ -12,9 +12,11 @@ namespace ConnectFourGame
         {
             //Welcome greeting
             Console.WriteLine("Welcome to the Connect Four Game! ");
-            //Ask the game player to enter their name to get started
-            Console.WriteLine("Please enter your name to begin. ");
-            //Allows game player to enter text
+            //Ask each of the two players to enter their names to get started, starting with Player 1
+            Console.WriteLine("Player 1, please enter your name. ");
+            //Allow game player to answer by inputting text
+            string str = Console.ReadLine();
+            Console.WriteLine("Player 2, please enter your name . ");
             string str = Console.ReadLine();
         }
     }
