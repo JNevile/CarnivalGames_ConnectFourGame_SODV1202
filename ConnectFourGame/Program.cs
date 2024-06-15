@@ -16,7 +16,7 @@ namespace ConnectFourGame
             Console.WriteLine("Player 1, please enter your name. ");
             //Allow game player to answer by inputting text
             string str = Console.ReadLine();
-            Console.WriteLine("Player 2, please enter your name . ");
+            Console.WriteLine("Player 2, please enter your name. ");
             string str = Console.ReadLine();
         }
     }
