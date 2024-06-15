@@ -1,0 +1,12 @@
+Milestone 1
+
+Team Name: Carnival Games  /  Team Member: Janine Neville
+
+General Strategies:
+Create GitHub repository
+Create C# Console App folders in Visual Studio and upload project folders to GitHub Repository
+Implement milestones to complete project
+
+Project Objective: 
+Project objective is to create a two player game that allows user input to choose a row to drop a game piece into, with the goal of of connecting the game pieces into lines 
+Ultimately only one player can be the winner at the conclusion of game play. The winner will be congratulated using text string output at the end of the game.
