@@ -65,7 +65,7 @@ namespace ConnectFourGame
             //To win the Connect Four Game, a player needs to form a row of four of their color of Checker (the gamepiece)
             //Wins must be checked for horizontally, vertically, and diagonally as a line can be formed in multiple directions
             //Next steps: If a player has won, announce their win and if no one has won then it will be the time for the next player to take a turn and place their game piece
-            for (int i = 0; i < 0; i++)
+            for (int i = 0; i < 6; i++)
             {
                 for (int j = 0; j < 7; j++)
                 {
