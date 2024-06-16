@@ -52,7 +52,7 @@ namespace ConnectFourGame
             //The TakeTurn method facilitates the player as they take a turn during game play
             for (int i = 5; i >= 0; i--)
             {
-                if (board[i, column] == "\0")
+                if (board[i, column] == '\0')
                 {
                     board[i, column] = currentPlayer.Checker;
                     break;
