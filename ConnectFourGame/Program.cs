@@ -34,7 +34,31 @@ namespace ConnectFourGame
             //To do insert game logic to allow placement of game pieces in game board 
             //and have the game check for a winner (four in a row) after each turn
             //Game logic checks for four matching color pieces (red or blue) in a row horizontally, vertically, or diagonlly.  
+
+            //Start up the game by making the game board and it will be 6 rows in height and 7 columns in width
+            //All rows will start out as filled with zeros which symbolize empty slots in the game board ready to accept game pieces
+            board = new int[6,7];
+            for (int a = 0; a < 6; a++)
+            {
+                for (int b = 0; b < 7; b++)
+                {
+                    board[a, b] = 0;
+                }
+            }
+            //Start with player 1 (red)
+            //TO DO Get a player to start playing
+            //Player = player1;
         }
+        public void TakeTurn()
+        {
+            //Add logic to have player take a turn
+        }
+        public void WinnerAlert()
+        {    
+            //Add logic to check for a winner after every single turn so no one misses out on their hard earned victory, could also be called Win Audit or soething similar
+            //Next steps: If a player has won, announce their win and if no one has won then it will be the time for the next player to take a turn and place their game piece
+        }
+        
     }
     class Program
     {
