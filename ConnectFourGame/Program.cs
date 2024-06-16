@@ -129,8 +129,10 @@ namespace ConnectFourGame
             Console.WriteLine("Player 2, please enter your name. ");
             string player2Name = Console.ReadLine();
 
-            Player player1 = new Player(player1Name, "Red");
-            Player player2 = new Player(player2Name, "Blue");
+            //Player 1 will be assigned the red checkers as their colour for gamepieces
+            Player player1 = new Player(player1Name, "R");
+            //Player 2 will be assigned the yellow checkers as their colour for gamepieces
+            Player player2 = new Player(player2Name, "Y");
             
             Game game = new Game(player1, player2);
             game.Start();
