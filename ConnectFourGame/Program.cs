@@ -61,27 +61,53 @@ namespace ConnectFourGame
         }
         private bool WinnerAlert()
         {    
-            //Add logic to check for a winner after every single turn so no one misses out on their hard earned victory
             //To win the Connect Four Game, a player needs to form a row of four of their color of Checker (the gamepiece)
-            //Wins must be checked for horizontally, vertically, and diagonally as a line can be formed in multiple directions
-            //Next steps: If a player has won, announce their win and if no one has won then it will be the time for the next player to take a turn and place their game piece
+            //Check for a winner after every single turn so no one misses out on their hard earned victory
+            //Wins must be checked for horizontally, vertically, and diagonally in both directions, as a line of four checkers can be formed in multiple ways
+            //If a player wins, announce their win but if no one has won yet, then it will be the time for the next player to take a turn and place their game piece
             for (int i = 0; i < 6; i++)
             {
                 for (int j = 0; j < 7; j++)
                 {
-                    if(board[i,j] ==currentPlayer.Checker && ((j < 4 && board[i, j + 1] == currentPlayer.Checker && board[i, 
-                j + 2] == currentPlayer.Checker && board[i, j + 3] == currentPlayer.Checker) || 
-                        (i < 3 && board[i + 1, j] == currentPlayer.Checker && board[i + 
-                2, j] == currentPlayer.Checker && board[i + 3, j] == currentPlayer.Checker) ||
-                        (i < 3 && j < 4 && board[i + 1, j + 1] == currentPlayer.Checker && board[i + 2, j + 2] == 
-                         currentPlayer.Checker && board[i + 3, j + 3] == currentPlayer.Checker)))
+                    //Diagonal Check (Starting from the left hand side of the board at top, down to the right hand side of the board at bottom)
+                    if(i < 3 && j < 4 && board[i, j] == 
+                    currentPlayer.Checker && board [i + 1, j + 1] == 
+                    currentPlayer.Checker && board [i + 2, j + 2] == 
+                    currentPlayer.Checker && board [i + 3, j + 3] ==
+                    currentPlayer.Checker)
                     {
-                        //If the current player wins after their turn
                         return true;
-                    }
+                    }    
+                    //Diagonal Check (Starting from the top right hand side of the board, down to the left hand side of the board at bottom)
+                    if(i < 3 && j < 2 && board[i, j] == 
+                    currentPlayer.Checker && board [i + 1, j + 1] == 
+                    currentPlayer.Checker && board [i + 2, j + 2] == 
+                    currentPlayer.Checker && board [i + 3, j + 3] ==
+                    currentPlayer.Checker)
+                    {
+                        return true;
+                    }                  
+                    //Horizontal Check
+                    if(j < 4 && board[i, j] == 
+                    currentPlayer.Checker && board[i, j + 1] == 
+                    currentPlayer.Checker && board[i, j + 2] == 
+                    currentPlayer.Checker && board[i, j + 3] == 
+                    currentPlayer.Checker)
+                    {
+                        return true;
+                    }    
+                    //Vertical Check
+                    if(i < 3 && board[i, j] == 
+                    currentPlayer.Checker && board[i + 1, j] == 
+                    currentPlayer.Checker && board[i + 2, j] == 
+                    currentPlayer.Checker && board[i + 3, j] ==
+                    currentPlayer.Checker)
+                    {
+                        return true;
+                    }    
                 }
             }
-            //If the current player did not win after their turn
+            //If winning conditions are not met, the current player did not win after their turn
             return false;
         }
         //Gameplay involves the players taking turns alternating between player 1 and player 2
