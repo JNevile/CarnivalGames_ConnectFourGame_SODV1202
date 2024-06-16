@@ -133,7 +133,7 @@ namespace ConnectFourGame
             Player player2 = new Player(player2Name, "Blue");
             
             Game game = new Game(player1, player2);
-            game.StartGame();
+            game.Start();
         }
     }
 }
