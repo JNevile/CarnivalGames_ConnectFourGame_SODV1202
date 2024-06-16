@@ -20,7 +20,9 @@ namespace ConnectFourGame
     {
         private Player player1;
         private Player player2;
-
+        //This Array in 2D is the game board for the Connect Four Game
+        private int[,] board; 
+        
         public Game{string player1Name; string player2Name)
         {
             player1 = new Player(player1Name);
