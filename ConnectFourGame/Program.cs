@@ -50,11 +50,11 @@ namespace ConnectFourGame
         private void TakeTurn(int column, int player)
         {
             //The TakeTurn method facilitates the player as they take a turn during game play
-            for (int a = 5; a >= 0; a--)
+            for (int i = 5; i >= 0; i--)
             {
-                if (board[a, column] == "\0")
+                if (board[i, column] == "\0")
                 {
-                    board[a, column] = currentPlayer.Checker;
+                    board[i, column] = currentPlayer.Checker;
                     break;
                 }
             }
@@ -65,8 +65,30 @@ namespace ConnectFourGame
             //To win the Connect Four Game, a player needs to form a row of four of their color of Checker (the gamepiece)
             //Wins much be checked for horizontally, vertically, and diagonally as a line can be formed in multiple directions
             //Next steps: If a player has won, announce their win and if no one has won then it will be the time for the next player to take a turn and place their game piece
+            for (int i = 0; i < 0; i++)
+            {
+                for (int j = 0; j < 7; j++)
+                {
+                    if(board[i,j] ==currentPlayer.Checker && ((j < 4 && board[i, j + 1] == currentPlayer.Checker && board[i, 
+                j + 2] == currentPlayer.Checker && board[i, j + 3] == currentPlayer.Checker) || 
+                        (i < 3 && board[i + 1, j] == currentPlayer.Checker && board[i + 
+                2, j] == currentPlayer.Checker && board[i + 3, j] == currentPlayer.Checker) ||
+                        (i < 3 && j < 4 && board[i + 1, j + 1] == currentPlayer.Checker && board[i + 2, j + 2] == 
+                         currentPlayer.Checker && board[i + 3, j + 3] == currentPlayer.Checker)))
+                    {
+                        //If the current player wins after their turn
+                        return true;
+                    }
+                }
+            }
+            //If the current player did not win after their turn
+            return false;
         }
-        
+        //Gameplay involves the players taking turns alternating between player 1 and player 2
+        private void ChangePlayer()
+        {
+            currentPlayer = currentPlayer == player1 ? player2 : player1;
+        }                         
     }
     class Program
     {
@@ -85,15 +107,7 @@ namespace ConnectFourGame
             Player player2 = new Player(player2Name, "Blue");
             
             Game game = new Game(player1, player2);
-            //TO DO
-            while (true)
-            {
-                //TO DO: Game logic
-            }
-            //TO DO
-            //Add ability for game to respond to the players, displaying the name they inputted 
-            //and explain to player 1 they are red and to player 2 blue game pieces
-            //i.e. let them know player 1 is x and that represents red and player 2 is o and that represents blue - tbd
+            game.StartGame();
         }
     }
 }
