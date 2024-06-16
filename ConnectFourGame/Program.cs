@@ -36,7 +36,7 @@ namespace ConnectFourGame
         {
             while (true)
             {
-                Console.WriteLine($"{currentPlayer.Name}" its your turn! Enter the column where you wish to place your checker(0 to 6):");
+                Console.WriteLine($"{currentPlayer.Name}" its your turn! Enter the column that you wish to place your checker into(0 to 6):");
                 int column = int.Parse(Console.ReadLine());
                 TakeTurn(column);
                 if (CheckWin())
