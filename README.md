@@ -18,7 +18,7 @@ Milestone 3: Complete (Setup Git Repository)
 
 Milestone 4: Complete (Send link to Github Repository to Instructor in d2l final project dropbox)
 
-Milestone 5:
+Milestone 5: Complete (Multiple errors including typos and code errors corrected and code debugged, revisions made)
 
 Milestone 6: 
 
