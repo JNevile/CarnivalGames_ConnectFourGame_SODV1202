@@ -85,7 +85,7 @@ namespace ConnectFourGame
             return false;
         }
         //Gameplay involves the players taking turns alternating between player 1 and player 2
-        private void ChangePlayer()
+        private void SwitchPlayer()
         {
             currentPlayer = currentPlayer == player1 ? player2 : player1;
         }                         
