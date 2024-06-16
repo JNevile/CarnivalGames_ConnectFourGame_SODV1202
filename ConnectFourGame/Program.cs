@@ -47,7 +47,7 @@ namespace ConnectFourGame
                 SwitchPlayer();
             }    
         }
-        private void TakeTurn(int column, int player)
+        private void TakeTurn(int column)
         {
             //The TakeTurn method facilitates the player as they take a turn during game play
             for (int i = 5; i >= 0; i--)
