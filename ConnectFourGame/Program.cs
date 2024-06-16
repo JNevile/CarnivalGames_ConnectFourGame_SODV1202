@@ -7,51 +7,49 @@ using System.Threading.Tasks;
 namespace ConnectFourGame
 {
     //This class represents a player in the Connect Four Game
+    //The checker represents a game piece that will be placed into a column on the board during each player's turn
     public class Player
     {
         public string Name { get; set; }
-        public Player(string name)
+        public char Checker { get; set; }
+        
+        public Player(string name, char checker)
         {
             Name = name;
+            Checker = checker;
         }
     }
     //This class reperesents the Connect Four Game and it has two player Objects in this class
     public class Game
     {
-        private Player player1;
-        private Player player2;
-        //This Array in 2D is the game board for the Connect Four Game
-        private int[,] board; 
-        
-        public Game(string player1Name, string player2Name)
+        private Player currentPlayer;
+        //This represents the game board for the Connect Four Game
+        private char[,] board;
+        //The game has 6 columns that are 7 rows long and will alternate between two players starting with player 1
+        public Game(Player player1, Player player2)
         {
-            player1 = new Player(player1Name);
-            player2 = new Player(player2Name);
+            currentPlayer = player1;
+            board = new char[6, 7];
         }
         //This is the Start Method that contains the game logics
         public void Start()
         {
-            //To do insert game logic to allow placement of game pieces in game board 
-            //and have the game check for a winner (four in a row) after each turn
-            //Game logic checks for four matching color pieces (red or blue) in a row horizontally, vertically, or diagonlly.  
-
-            //Start up the game by making the game board and it will be 6 rows in height and 7 columns in width
-            //All rows will start out as filled with zeros which symbolize empty slots in the game board ready to accept game pieces
-            board = new int[6,7];
-            for (int a = 0; a < 6; a++)
+            while (true)
             {
-                for (int b = 0; b < 7; b++)
+                Console.WriteLine($"{currentPlayer.Name}" its your turn! Enter the column where you wish to place your checker(0 to 6):");
+                int column = int.Parse(Console.ReadLine());
+                TakeTurn(column);
+                if (CheckWin())
                 {
-                    board[a, b] = 0;
+                    Console.WriteLine($"{currentPlayer.Name} wins!");
+                  break;
                 }
-            }
-            //Start with player 1 (red)
-            //TO DO Get a player to start playing
-            //Player = player1;
+                SwitchPlayer();
+            }    
         }
         public bool TakeTurn(int column, int player)
         {
-            //The TakeTurn method facilitates the player as they take a turn
+            //The TakeTurn method facilitates the player as they take a turn during game play
 
         }
         public void WinnerAlert()
@@ -73,6 +71,16 @@ namespace ConnectFourGame
             string player1Name = Console.ReadLine();
             Console.WriteLine("Player 2, please enter your name. ");
             string player2Name = Console.ReadLine();
+
+            Player player1 = new Player(player1Name, "Red");
+            Player player2 = new Player(player2Name, "Blue");
+            
+            Game game = new Game(player1, player2);
+            //TO DO
+            while (true)
+            {
+                //TO DO: Game logic
+            }
             //TO DO
             //Add ability for game to respond to the players, displaying the name they inputted 
             //and explain to player 1 they are red and to player 2 blue game pieces
