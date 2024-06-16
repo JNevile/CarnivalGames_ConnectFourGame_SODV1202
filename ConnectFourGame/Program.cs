@@ -25,7 +25,7 @@ namespace ConnectFourGame
         private Player currentPlayer;
         //This represents the game board for the Connect Four Game
         private char[,] board;
-        //The game has 6 columns that are 7 rows long and will alternate between two players starting with player 1
+        //The game has 6 columns that are 7 rows long and gameplay will alternate between two players taking turns, starting with player 1
         public Game(Player player1, Player player2)
         {
             currentPlayer = player1;
@@ -42,19 +42,28 @@ namespace ConnectFourGame
                 if (CheckWin())
                 {
                     Console.WriteLine($"{currentPlayer.Name} wins!");
-                  break;
+                    break;
                 }
                 SwitchPlayer();
             }    
         }
-        public bool TakeTurn(int column, int player)
+        private void TakeTurn(int column, int player)
         {
             //The TakeTurn method facilitates the player as they take a turn during game play
-
+            for (int a = 5; a >= 0; a--)
+            {
+                if (board[a, column] == "\0")
+                {
+                    board[a, column] = currentPlayer.Checker;
+                    break;
+                }
+            }
         }
-        public void WinnerAlert()
+        private bool WinnerAlert()
         {    
-            //Add logic to check for a winner after every single turn so no one misses out on their hard earned victory, could also be called Win Audit or soething similar
+            //Add logic to check for a winner after every single turn so no one misses out on their hard earned victory
+            //To win the Connect Four Game, a player needs to form a row of four of their color of Checker (the gamepiece)
+            //Wins much be checked for horizontally, vertically, and diagonally as a line can be formed in multiple directions
             //Next steps: If a player has won, announce their win and if no one has won then it will be the time for the next player to take a turn and place their game piece
         }
         
