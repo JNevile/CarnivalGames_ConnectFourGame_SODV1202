@@ -24,7 +24,7 @@ namespace ConnectFourGame
         public Game{string player1Name; string player2Name)
         {
             player1 = new Player(player1Name);
-            player2 - new Player(player2Name);
+            player2 = new Player(player2Name);
         }
         //This is the Start Method that contains the game logics
         public void Start()
