@@ -70,7 +70,7 @@ namespace ConnectFourGame
                 for (int j = 0; j < 7; j++)
                 {
                     //Diagonal Check (Starting from the left hand side of the board at top, down to the right hand side of the board at bottom)
-                    if(i < 3 && j < 4 && board[i, j] == 
+                    if (i < 3 && j < 4 && board[i, j] == 
                     currentPlayer.Checker && board [i + 1, j + 1] == 
                     currentPlayer.Checker && board [i + 2, j + 2] == 
                     currentPlayer.Checker && board [i + 3, j + 3] ==
@@ -79,7 +79,7 @@ namespace ConnectFourGame
                         return true;
                     }    
                     //Diagonal Check (Starting from the top right hand side of the board, down to the left hand side of the board at bottom)
-                    if(i < 3 && j < 2 && board[i, j] == 
+                    if (i < 3 && j < 2 && board[i, j] == 
                     currentPlayer.Checker && board [i + 1, j + 1] == 
                     currentPlayer.Checker && board [i + 2, j + 2] == 
                     currentPlayer.Checker && board [i + 3, j + 3] ==
@@ -88,7 +88,7 @@ namespace ConnectFourGame
                         return true;
                     }                  
                     //Horizontal Check
-                    if(j < 4 && board[i, j] == 
+                    if (j < 4 && board[i, j] == 
                     currentPlayer.Checker && board[i, j + 1] == 
                     currentPlayer.Checker && board[i, j + 2] == 
                     currentPlayer.Checker && board[i, j + 3] == 
@@ -97,7 +97,7 @@ namespace ConnectFourGame
                         return true;
                     }    
                     //Vertical Check
-                    if(i < 3 && board[i, j] == 
+                    if (i < 3 && board[i, j] == 
                     currentPlayer.Checker && board[i + 1, j] == 
                     currentPlayer.Checker && board[i + 2, j] == 
                     currentPlayer.Checker && board[i + 3, j] ==
