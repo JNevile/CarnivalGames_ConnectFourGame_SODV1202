@@ -117,13 +117,13 @@ namespace ConnectFourGame
         }
         private void SwitchPlayer(Player currentPlayer)
         {
-            if (currentPlayer != player1)
+            if (currentPlayer != this.player1)
             {
                 currentPlayer = player1;
             }
             else 
             {
-                currentPlayer = player2;    
+                currentPlayer = this.player2;    
             }
         }                         
     }
