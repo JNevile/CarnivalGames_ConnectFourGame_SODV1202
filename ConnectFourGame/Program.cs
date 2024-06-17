@@ -44,7 +44,7 @@ namespace ConnectFourGame
                     Console.WriteLine($"{currentPlayer.Name} wins!");
                     break;
                 }
-                SwitchPlayer();
+                SwitchPlayer(GetCurrentPlayer());
             }    
         }
         private void TakeTurn(int column)
@@ -111,7 +111,11 @@ namespace ConnectFourGame
             return false;
         }
         //Gameplay involves the players taking turns alternating between player 1 and player 2
-        private void SwitchPlayer()
+        private Player GetCurrentPlayer()
+        {
+            return currentPlayer;
+        }
+        private void SwitchPlayer(Player currentPlayer)
         {
             currentPlayer = currentPlayer == player1 ? player2 : player1;
         }                         
