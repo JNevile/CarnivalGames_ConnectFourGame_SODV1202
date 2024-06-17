@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -117,14 +117,7 @@ namespace ConnectFourGame
         }
         private void SwitchPlayer(Player currentPlayer)
         {
-            if (currentPlayer != this.player1)
-            {
-                currentPlayer = player1;
-            }
-            else 
-            {
-                currentPlayer = this.player2;    
-            }
+            currentPlayer = currentPlayer == player1 ? player2 : player1;
         }                         
     }
     class Program
@@ -139,12 +132,11 @@ namespace ConnectFourGame
             string player1Name = Console.ReadLine();
             Console.WriteLine("Player 2, please enter your name. ");
             string player2Name = Console.ReadLine();
-            Console.WriteLine("Good luck to you, " + player1Name + "and " + player2Name);
 
-            //Identify player 1
-            Player player1 = new Player(player1Name, 'X');
-            //Identify player 2
-            Player player2 = new Player(player2Name, 'O');
+            //Player 1 will be assigned the red checkers as their colour for gamepieces
+            Player player1 = new Player(player1Name, 'R');
+            //Player 2 will be assigned the yellow checkers as their colour for gamepieces
+            Player player2 = new Player(player2Name, 'Y');
             
             Game game = new Game(player1, player2);
             game.Start();
