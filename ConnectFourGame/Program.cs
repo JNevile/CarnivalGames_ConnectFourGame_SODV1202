@@ -117,7 +117,14 @@ namespace ConnectFourGame
         }
         private void SwitchPlayer(Player currentPlayer)
         {
-            currentPlayer = currentPlayer == player1 ? player2 : player1;
+            if (currentPlayer != player1)
+            {
+                currentPlayer = player1;
+            }
+            else 
+            {
+                currentPlayer = player2;    
+            }
         }                         
     }
     class Program
