@@ -135,9 +135,9 @@ namespace ConnectFourGame
             Console.WriteLine("Good luck to you, " + player1Name + "and " + player2Name);
 
             //Identify player 1
-            var player1 = new Player(player1Name);
+            Player player1 = new Player(player1Name, 'X');
             //Identify player 2
-            var player2 = new Player(player2Name);
+            Player player2 = new Player(player2Name, 'O');
             
             Game game = new Game(player1, player2);
             game.Start();
