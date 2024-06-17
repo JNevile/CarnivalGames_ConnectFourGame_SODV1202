@@ -1,9 +1,0 @@
-Milestone 6 Core Classes 
-  Hints: You should design at-least four classes (or more), along with any other classes needed to implement your project. 
-  You may have a controller class to play the game, a model class that implements intermediate steps and holds information about the game, 
-  two classes that extend the Player abstract class. One player can be a human player while the other can be a computer player. 
-  Both of these classes should communicate with the world via an object that is created in your controller class. 
-  You may also have a class that interacts and provides communication via text input from the keyboard and output on the Console.
-
-Player class: The Player class represents a player in the Connect Four Game
-Game class: The Game class represents the game class and this class contains two Player Objects and a Start Method
