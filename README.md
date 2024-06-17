@@ -20,10 +20,10 @@ Milestone 4: Complete (Send link to Github Repository to Instructor in d2l final
 
 Milestone 5: Complete (Multiple errors including typos and code errors corrected and code debugged, revisions made)
 
-Milestone 6: 
+Milestone 6: Complete (Core Classes: Player, Game, and Program classes)
 
-Milestone 7:
+Milestone 7: Complete (I opened game in visual studio, made final revisions to player coding and was able to get the game to run and announce a win however it will not switch players and every attempt to remedy this I was unsuccessful)
 
-Milestone 8:
+Milestone 8: Complete (OOP principles were followed with information I learned in this course)
 
-Milestone 9:
+Milestone 9: Did not complete (AI algorithim development)
