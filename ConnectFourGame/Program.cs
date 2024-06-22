@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 namespace ConnectFourGame
 {
     //This class represents a player in the Connect Four Game
@@ -12,7 +11,7 @@ namespace ConnectFourGame
     {
         public string Name { get; set; }
         public char Checker { get; set; }
-        
+
         public Player(string name, char checker)
         {
             Name = name;
@@ -25,11 +24,15 @@ namespace ConnectFourGame
         private Player currentPlayer;
         //This represents the game board for the Connect Four Game
         private char[,] board;
+        private Player player2;
+        private Player player1;
         //The game has 6 columns that are 7 rows long and gameplay will alternate between two players taking turns, starting with player 1
-        public Game(Player player1, Player player2)
+        public Game(Player p1, Player p2)
         {
-            currentPlayer = player1;
+            currentPlayer = p1;
             board = new char[6, 7];
+            player1 = p1;
+            player2 = p2;
         }
         //This is the Start Method that contains the game logics
         public void Start()
@@ -37,15 +40,14 @@ namespace ConnectFourGame
             while (true)
             {
                 Console.WriteLine($"{currentPlayer.Name} its your turn! Enter the column that you wish to place your checker into(0 to 6):");
-                int column = int.Parse(Console.ReadLine());
+                var column = int.Parse(Console.ReadLine());
                 TakeTurn(column);
                 if (WinnerAlert())
                 {
                     Console.WriteLine($"{currentPlayer.Name} wins!");
                     break;
                 }
-                SwitchPlayer(GetCurrentPlayer());
-            }    
+            }
         }
         private void TakeTurn(int column)
         {
@@ -58,9 +60,10 @@ namespace ConnectFourGame
                     break;
                 }
             }
+            SwitchPlayer();
         }
         private bool WinnerAlert()
-        {    
+        {
             //To win the Connect Four Game, a player needs to form a row of four of their color of Checker (the gamepiece)
             //Check for a winner after every single turn so no one misses out on their hard earned victory
             //Wins must be checked for horizontally, vertically, and diagonally in both directions, as a line of four checkers can be formed in multiple ways
@@ -70,41 +73,41 @@ namespace ConnectFourGame
                 for (int j = 0; j < 7; j++)
                 {
                     //Diagonal Check (Starting from the left hand side of the board at top, down to the right hand side of the board at bottom)
-                    if (i < 3 && j < 4 && board[i, j] == 
-                    currentPlayer.Checker && board [i + 1, j + 1] == 
-                    currentPlayer.Checker && board [i + 2, j + 2] == 
-                    currentPlayer.Checker && board [i + 3, j + 3] ==
+                    if (i < 3 && j < 4 && board[i, j] ==
+                    currentPlayer.Checker && board[i + 1, j + 1] ==
+                    currentPlayer.Checker && board[i + 2, j + 2] ==
+                    currentPlayer.Checker && board[i + 3, j + 3] ==
                     currentPlayer.Checker)
                     {
                         return true;
-                    }    
+                    }
                     //Diagonal Check (Starting from the top right hand side of the board, down to the left hand side of the board at bottom)
-                    if (i < 3 && j < 2 && board[i, j] == 
-                    currentPlayer.Checker && board [i + 1, j + 1] == 
-                    currentPlayer.Checker && board [i + 2, j + 2] == 
-                    currentPlayer.Checker && board [i + 3, j + 3] ==
+                    if (i < 3 && j < 2 && board[i, j] ==
+                    currentPlayer.Checker && board[i + 1, j + 1] ==
+                    currentPlayer.Checker && board[i + 2, j + 2] ==
+                    currentPlayer.Checker && board[i + 3, j + 3] ==
                     currentPlayer.Checker)
                     {
                         return true;
-                    }                  
+                    }
                     //Horizontal Check
-                    if (j < 4 && board[i, j] == 
-                    currentPlayer.Checker && board[i, j + 1] == 
-                    currentPlayer.Checker && board[i, j + 2] == 
-                    currentPlayer.Checker && board[i, j + 3] == 
+                    if (j < 4 && board[i, j] ==
+                    currentPlayer.Checker && board[i, j + 1] ==
+                    currentPlayer.Checker && board[i, j + 2] ==
+                    currentPlayer.Checker && board[i, j + 3] ==
                     currentPlayer.Checker)
                     {
                         return true;
-                    }    
+                    }
                     //Vertical Check
-                    if (i < 3 && board[i, j] == 
-                    currentPlayer.Checker && board[i + 1, j] == 
-                    currentPlayer.Checker && board[i + 2, j] == 
+                    if (i < 3 && board[i, j] ==
+                    currentPlayer.Checker && board[i + 1, j] ==
+                    currentPlayer.Checker && board[i + 2, j] ==
                     currentPlayer.Checker && board[i + 3, j] ==
                     currentPlayer.Checker)
                     {
                         return true;
-                    }    
+                    }
                 }
             }
             //If winning conditions are not met, the current player did not win after their turn
@@ -115,10 +118,18 @@ namespace ConnectFourGame
         {
             return currentPlayer;
         }
-        private void SwitchPlayer(Player currentPlayer)
+        private void SwitchPlayer()
         {
-            currentPlayer = currentPlayer == player1 ? player2 : player1;
-        }                         
+            if (currentPlayer == player1)
+            {
+                currentPlayer = player2;
+            }
+            else
+            {
+                currentPlayer = player1;
+            }
+        }
+
     }
     class Program
     {
@@ -132,12 +143,11 @@ namespace ConnectFourGame
             string player1Name = Console.ReadLine();
             Console.WriteLine("Player 2, please enter your name. ");
             string player2Name = Console.ReadLine();
-
             //Player 1 will be assigned the red checkers as their colour for gamepieces
             Player player1 = new Player(player1Name, 'R');
             //Player 2 will be assigned the yellow checkers as their colour for gamepieces
             Player player2 = new Player(player2Name, 'Y');
-            
+
             Game game = new Game(player1, player2);
             game.Start();
         }
