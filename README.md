@@ -22,7 +22,7 @@ Milestone 5: Complete (Multiple errors including typos and code errors corrected
 
 Milestone 6: Complete (Core Classes: Player, Game, and Program classes)
 
-Milestone 7: Complete (I opened game in visual studio, made final revisions to player coding and was able to get the game to run and announce a win however it will not switch players and every attempt to remedy this I was unsuccessful)
+Milestone 7: Complete (I opened game in visual studio, made final revisions to player coding and was able to get the game to run and announce a win!)
 
 Milestone 8: Complete (OOP principles were followed with information I learned in this course)
 
